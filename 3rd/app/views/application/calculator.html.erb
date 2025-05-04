@@ -1,0 +1,23 @@
+<h1>Simple Calculator</h1>
+
+<%= form_with url: "/calculate", method: "post" do %>
+  <label>Number 1:</label>
+  <%= text_field_tag :num1 %><br><br>
+
+  <label>Number 2:</label>
+  <%= text_field_tag :num2 %><br><br>
+
+  <label>Operation:</label>
+  <%= select_tag :operation, options_for_select([
+    ['Add', 'add'],
+    ['Subtract', 'subtract'],
+    ['Multiply', 'multiply'],
+    ['Divide', 'divide']
+  ]) %><br><br>
+
+  <%= submit_tag "Calculate" %>
+<% end %>
+
+<% if defined?(@result) %>
+  <h2>Result: <%= @result %></h2>
+<% end %>
